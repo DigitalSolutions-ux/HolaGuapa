@@ -32,6 +32,7 @@
             opacity: 1;
             animation: aparecer 1s ease-out;
             margin-bottom: 20px; /* Espacio entre la carta cerrada y el carrusel */
+            display: block; /* Asegura que la carta cerrada se muestre */
         }
 
         .carta-cerrada h1 {
@@ -61,11 +62,13 @@
             opacity: 0;
             transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
             z-index: 10; /* Asegura que esté encima del carrusel al abrirse */
+            display: none; /* Inicialmente oculta */
         }
 
         .carta-abierta.abierta {
             opacity: 1;
             transform: translate(-50%, -50%) scale(1);
+            display: block; /* Se muestra al hacer clic */
         }
 
         .titulo-carta {
@@ -184,14 +187,9 @@
             }, 400); // Espera un poco para que la rotación se note
         });
 
-        // Ocultar la carta abierta y el carrusel al principio
-        cartaAbierta.style.display = 'block';
-        carousel.style.display = 'flex';
-        cartaAbierta.classList.remove('abierta');
-        carousel.classList.remove('visible');
-
-        // Mostrar la carta cerrada al inicio
-        cartaCerrada.style.display = 'block';
+        // Inicialmente, la carta abierta y el carrusel deben estar ocultos
+        cartaAbierta.style.display = 'none';
+        carousel.style.opacity = '0';
     </script>
 </body>
 </html>
