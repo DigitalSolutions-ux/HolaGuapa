@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta para Mi Amor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .carta-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 80%;
+            max-width: 600px;
+            animation: aparecer 1s ease-out;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .titulo {
+            color: #e91e63;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+            animation: pulsar 1.5s infinite alternate;
+        }
+
+        @keyframes pulsar {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
+        .contenido {
+            line-height: 1.6;
+            color: #333;
+            opacity: 0;
+            animation: fade-in 1s ease-in-out 0.5s forwards;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .parrafo {
+            margin-bottom: 15px;
+        }
+
+        .firma {
+            text-align: right;
+            font-style: italic;
+            color: #777;
+            opacity: 0;
+            animation: slide-up 1s ease-out 1s forwards;
+        }
+
+        @keyframes slide-up {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .imagen-corazon {
+            display: block;
+            margin: 20px auto;
+            width: 80px;
+            height: 70px;
+            background-image: url('https://i.imgur.com/lRfj1H0.png'); /* Reemplaza con la URL de tu imagen de corazón */
+            background-size: cover;
+            animation: latir 1s infinite alternate;
+        }
+
+        @keyframes latir {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="carta-container">
+        <h1 class="titulo">Para la Dueña de Mi Corazón</h1>
+        <div class="imagen-corazon"></div>
+        <div class="contenido">
+            <p class="parrafo">Mi amor,</p>
+            <p class="parrafo">Cada día a tu lado es una aventura maravillosa, llena de risas, cariño y momentos inolvidables. Tu luz ilumina mi mundo y me haces la persona más feliz del planeta.</p>
+            <p class="parrafo">Quiero que sepas que mi amor por ti crece con cada instante que compartimos. Eres mi confidente, mi apoyo incondicional y la mujer de mis sueños.</p>
+            <p class="parrafo">Espero que esta pequeña carta te saque una sonrisa y te recuerde lo mucho que te amo y lo especial que eres para mí.</p>
+        </div>
+        <p class="firma">Con todo mi amor,</p>
+        <p class="firma">Tu [Tu Nombre]</p>
+    </div>
+</body>
+</html>
