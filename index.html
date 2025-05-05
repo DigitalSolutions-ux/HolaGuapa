@@ -105,6 +105,7 @@
             z-index: 5; /* Para que esté debajo de la carta abierta */
             background: rgba(255, 255, 255, 0.3); /* Fondo semitransparente */
             backdrop-filter: blur(10px); /* Efecto de desenfoque del fondo */
+            white-space: nowrap; /* Evitar que las imágenes se envuelvan */
         }
 
         .carousel-container.visible {
@@ -122,6 +123,150 @@
             margin-right: 20px;
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para iPad (típicamente anchos entre 768px y 1024px) */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .carta-cerrada {
+                width: 70%;
+                max-width: 500px;
+                padding: 25px;
+                margin-bottom: 15px;
+            }
+
+            .carta-cerrada h1 {
+                font-size: 2.2em;
+                margin-bottom: 12px;
+            }
+
+            .carta-cerrada .corazon {
+                font-size: 2.8em;
+            }
+
+            .carta-abierta {
+                padding: 30px;
+                width: 70%;
+                max-width: 600px;
+            }
+
+            .titulo-carta {
+                font-size: 2em;
+                margin-bottom: 15px;
+            }
+
+            .contenido-carta {
+                font-size: 1em;
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+
+            .firma-carta {
+                font-size: 0.95em;
+            }
+
+            .carousel-container {
+                height: 100px;
+                padding: 0 15px;
+                bottom: 15px;
+            }
+
+            .carousel-slide img {
+                height: 80px;
+                margin-right: 15px;
+            }
+        }
+
+        /* Estilos para iPhone (típicamente anchos máximos de 600px, ajustando para varios modelos) */
+        @media (max-width: 600px) {
+            .carta-cerrada {
+                width: 95%;
+                max-width: none;
+                padding: 20px;
+                margin-bottom: 15px;
+            }
+
+            .carta-cerrada h1 {
+                font-size: 2em;
+                margin-bottom: 10px;
+            }
+
+            .carta-cerrada .corazon {
+                font-size: 2.5em;
+            }
+
+            .carta-abierta {
+                padding: 15px;
+                width: 95%;
+                max-width: none;
+            }
+
+            .titulo-carta {
+                font-size: 1.8em;
+                margin-bottom: 10px;
+            }
+
+            .contenido-carta {
+                font-size: 1em;
+                line-height: 1.5;
+                margin-bottom: 15px;
+            }
+
+            .firma-carta {
+                font-size: 0.9em;
+            }
+
+            .carousel-container {
+                height: auto;
+                padding: 10px;
+                bottom: 0;
+                justify-content: flex-start;
+                overflow-x: auto;
+                flex-direction: row;
+                white-space: nowrap;
+            }
+
+            .carousel-slide {
+                animation: none !important;
+            }
+
+            .carousel-slide img {
+                height: 60px;
+                margin-right: 8px;
+            }
+        }
+
+        /* Estilos para PC (ancho mínimo, se aplican por defecto o con un min-width) */
+        @media (min-width: 1025px) {
+            .carta-cerrada {
+                width: 40%;
+                max-width: 500px;
+            }
+
+            .carta-abierta {
+                width: 50%;
+                max-width: 700px;
+                padding: 50px;
+            }
+
+            .titulo-carta {
+                font-size: 2.5em;
+            }
+
+            .contenido-carta {
+                font-size: 1.1em;
+                line-height: 1.8;
+            }
+
+            .carousel-container {
+                bottom: 30px;
+                height: 140px;
+                padding: 0 30px;
+            }
+
+            .carousel-slide img {
+                height: 120px;
+                margin-right: 25px;
+            }
         }
 
         @keyframes aparecer {
@@ -174,7 +319,7 @@
             <img src="Fotos Carrusel/Foto7.jpeg" alt="Foto 7">
             <img src="Fotos Carrusel/Foto8.jpeg" alt="Foto 8">
             <img src="Fotos Carrusel/Foto9.jpeg" alt="Foto 9">
-            </div>
+        </div>
     </div>
 
     <script>
