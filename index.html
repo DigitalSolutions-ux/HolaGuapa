@@ -3,26 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carta para Mi Amor</title>
+    <title>Para Ti, Con ❤️</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #fdecea; /* Un tono rosa suave */
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            overflow: hidden; /* Para que el contenido extra no haga scroll al inicio */
         }
 
-        .carta-container {
+        .carta-cerrada {
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            cursor: pointer;
+            transform-origin: top center;
+            transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out, box-shadow 0.3s ease-in-out;
+            opacity: 1;
+            animation: aparecer 1s ease-out;
+        }
+
+        .carta-cerrada h1 {
+            color: #e91e63;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            animation: pulsar 1.5s infinite alternate;
+        }
+
+        .carta-cerrada .corazon {
+            font-size: 3em;
+            color: #e91e63;
+            animation: latir 1s infinite alternate;
+        }
+
+        .carta-abierta {
+            position: relative;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             padding: 40px;
             width: 80%;
             max-width: 600px;
-            animation: aparecer 1s ease-out;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+            z-index: 10; /* Asegura que esté encima del carrusel al abrirse */
+        }
+
+        .carta-abierta.abierta {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .titulo-carta {
+            color: #e91e63;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.2em;
+        }
+
+        .contenido-carta {
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .firma-carta {
+            text-align: right;
+            font-style: italic;
+            color: #777;
+        }
+
+        .carousel-container {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 150px; /* Ajusta la altura según necesites */
+            background-color: rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .carousel-container.visible {
+            opacity: 1;
+        }
+
+        .carousel-slide {
+            display: flex;
+            animation: scroll 15s linear infinite; /* Ajusta la duración de la animación */
+        }
+
+        .carousel-slide img {
+            height: 100px;
+            margin-right: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         @keyframes aparecer {
@@ -30,76 +118,70 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .titulo {
-            color: #e91e63;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2em;
-            animation: pulsar 1.5s infinite alternate;
-        }
-
         @keyframes pulsar {
             from { transform: scale(1); }
             to { transform: scale(1.05); }
-        }
-
-        .contenido {
-            line-height: 1.6;
-            color: #333;
-            opacity: 0;
-            animation: fade-in 1s ease-in-out 0.5s forwards;
-        }
-
-        @keyframes fade-in {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .parrafo {
-            margin-bottom: 15px;
-        }
-
-        .firma {
-            text-align: right;
-            font-style: italic;
-            color: #777;
-            opacity: 0;
-            animation: slide-up 1s ease-out 1s forwards;
-        }
-
-        @keyframes slide-up {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .imagen-corazon {
-            display: block;
-            margin: 20px auto;
-            width: 80px;
-            height: 70px;
-            background-image: url('https://i.imgur.com/lRfj1H0.png'); /* Reemplaza con la URL de tu imagen de corazón */
-            background-size: cover;
-            animation: latir 1s infinite alternate;
         }
 
         @keyframes latir {
             from { transform: scale(1); }
             to { transform: scale(1.1); }
         }
+
+        @keyframes scroll {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
     </style>
 </head>
 <body>
-    <div class="carta-container">
-        <h1 class="titulo">Para la Dueña de Mi Corazón</h1>
-        <div class="imagen-corazon"></div>
-        <div class="contenido">
-            <p class="parrafo">Mi amor,</p>
-            <p class="parrafo">Cada día a tu lado es una aventura maravillosa, llena de risas, cariño y momentos inolvidables. Tu luz ilumina mi mundo y me haces la persona más feliz del planeta.</p>
-            <p class="parrafo">Quiero que sepas que mi amor por ti crece con cada instante que compartimos. Eres mi confidente, mi apoyo incondicional y la mujer de mis sueños.</p>
-            <p class="parrafo">Espero que esta pequeña carta te saque una sonrisa y te recuerde lo mucho que te amo y lo especial que eres para mí.</p>
-        </div>
-        <p class="firma">Con todo mi amor,</p>
-        <p class="firma">Tu [Tu Nombre]</p>
+    <div class="carta-cerrada" id="cartaCerrada">
+        <h1>¡Ábreme!</h1>
+        <div class="corazon">💖</div>
     </div>
+
+    <div class="carta-abierta" id="cartaAbierta">
+        <h1 class="titulo-carta">Para la Dueña de Mi Corazón ❤️</h1>
+        <div class="contenido-carta">
+            <p>Mi amor,</p>
+            <p>Cada día a tu lado es una aventura maravillosa, llena de risas, cariño y momentos inolvidables. Tu luz ilumina mi mundo y me haces la persona más feliz del planeta.</p>
+            <p>Quiero que sepas que mi amor por ti crece con cada instante que compartimos. Eres mi confidente, mi apoyo incondicional y la mujer de mis sueños. 💖</p>
+            <p>Espero que esta pequeña carta te saque una sonrisa y te recuerde lo mucho que te amo y lo especial que eres para mí. 🥰</p>
+        </div>
+        <p class="firma-carta">Con todo mi amor,</p>
+        <p class="firma-carta">Tu [Tu Nombre] 💌</p>
+    </div>
+
+    <div class="carousel-container" id="carousel">
+        <div class="carousel-slide">
+            <img src="URL_DE_TU_IMAGEN_1" alt="Foto 1">
+            <img src="URL_DE_TU_IMAGEN_2" alt="Foto 2">
+            <img src="URL_DE_TU_IMAGEN_3" alt="Foto 3">
+            </div>
+    </div>
+
+    <script>
+        const cartaCerrada = document.getElementById('cartaCerrada');
+        const cartaAbierta = document.getElementById('cartaAbierta');
+        const carousel = document.getElementById('carousel');
+
+        cartaCerrada.addEventListener('click', () => {
+            cartaCerrada.style.transform = 'rotateX(-90deg)';
+            cartaCerrada.style.opacity = '0';
+            setTimeout(() => {
+                cartaAbierta.classList.add('abierta');
+                carousel.classList.add('visible');
+            }, 400); // Espera un poco para que la rotación se note
+        });
+
+        // Ocultar la carta abierta y el carrusel al principio
+        cartaAbierta.style.display = 'block';
+        carousel.style.display = 'flex';
+        cartaAbierta.classList.remove('abierta');
+        carousel.classList.remove('visible');
+
+        // Mostrar la carta cerrada al inicio
+        cartaCerrada.style.display = 'block';
+    </script>
 </body>
 </html>
