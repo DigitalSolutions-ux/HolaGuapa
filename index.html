@@ -9,11 +9,13 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #fdecea; /* Un tono rosa suave */
             display: flex;
+            flex-direction: column; /* Para apilar la carta y el carrusel */
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             overflow: hidden; /* Para que el contenido extra no haga scroll al inicio */
+            position: relative; /* Para posicionar el carrusel absolutamente */
         }
 
         .carta-cerrada {
@@ -29,6 +31,7 @@
             transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out, box-shadow 0.3s ease-in-out;
             opacity: 1;
             animation: aparecer 1s ease-out;
+            margin-bottom: 20px; /* Espacio entre la carta cerrada y el carrusel */
         }
 
         .carta-cerrada h1 {
@@ -45,7 +48,10 @@
         }
 
         .carta-abierta {
-            position: relative;
+            position: absolute; /* Ahora es absoluta dentro del body */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8); /* Centrado y escalado inicial */
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -53,14 +59,13 @@
             width: 80%;
             max-width: 600px;
             opacity: 0;
-            transform: scale(0.8);
             transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
             z-index: 10; /* Asegura que esté encima del carrusel al abrirse */
         }
 
         .carta-abierta.abierta {
             opacity: 1;
-            transform: scale(1);
+            transform: translate(-50%, -50%) scale(1);
         }
 
         .titulo-carta {
@@ -83,18 +88,20 @@
         }
 
         .carousel-container {
-            position: fixed;
+            position: fixed; /* Para que flote */
             left: 0;
-            bottom: 0;
+            bottom: 20px; /* Espacio desde la parte inferior */
             width: 100%;
-            height: 150px; /* Ajusta la altura según necesites */
-            background-color: rgba(0, 0, 0, 0.1);
+            height: 120px; /* Ajusta la altura según necesites */
             overflow: hidden;
             display: flex;
             align-items: center;
             padding: 0 20px;
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
+            z-index: 5; /* Para que esté debajo de la carta abierta */
+            background: rgba(255, 255, 255, 0.3); /* Fondo semitransparente */
+            backdrop-filter: blur(10px); /* Efecto de desenfoque del fondo */
         }
 
         .carousel-container.visible {
@@ -104,13 +111,14 @@
         .carousel-slide {
             display: flex;
             animation: scroll 15s linear infinite; /* Ajusta la duración de la animación */
+            padding: 10px 0; /* Espacio vertical dentro del carrusel */
         }
 
         .carousel-slide img {
             height: 100px;
             margin-right: 20px;
             border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         @keyframes aparecer {
@@ -157,6 +165,8 @@
             <img src="URL_DE_TU_IMAGEN_1" alt="Foto 1">
             <img src="URL_DE_TU_IMAGEN_2" alt="Foto 2">
             <img src="URL_DE_TU_IMAGEN_3" alt="Foto 3">
+            <img src="URL_DE_TU_IMAGEN_4" alt="Foto 4">
+            <img src="URL_DE_TU_IMAGEN_5" alt="Foto 5">
             </div>
     </div>
 
